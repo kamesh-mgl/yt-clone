@@ -12,8 +12,8 @@ const Video_comp = ({ name, channel, thumbnail, duration, channelLogo, views, up
       </div>
       <div className='flex mt-3 bg-none'>
         <img
-          src="https://yt3.googleusercontent.com/p4TyMutaPSAFZNzFWSGHM0rbT59hPYuAhvMFfpi6uyNJyRLeUG5og5x91rtE6vnb5Vq1TcWT=s160-c-k-c0x00ffffff-no-rj"
-          alt=""
+          src={channelLogo}
+          alt="logo"
           className='h-9 w-9 rounded-full' />
         <div className='ml-2'>
           <h2 className='text-sm font-medium text-yt-white mt-0 mb-0 items-center'>

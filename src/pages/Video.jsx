@@ -9,6 +9,7 @@ import { TfiDownload } from "react-icons/tfi";
 import { BsThreeDots } from "react-icons/bs";
 import { categories } from '../static/data';
 import Recommend from '../components/Recommend';
+import { MdVerified } from "react-icons/md";
 
 
 
@@ -64,10 +65,11 @@ const Video = () => {
             {data?.name}
           </h2>
           <div className='flex items-center'>
-            <img className='h-10 w-10 rounded-full' src={data?.channelLogo} alt="" />
+            <img className='h-10 w-10 rounded-full' src={data?.channelLogo} alt="logo" />
             <div className='px-3'>
-              <h3 className='text-yt-white font-medium font-base'>
+              <h3 className='text-yt-white font-medium flex items-center font-base'>
                 {data?.channel}
+                <span className='pl-1 pt-0.5'><MdVerified /></span>
               </h3>
               <p className='text-yt-gray font-sm'>{data?.subscribers} Subscribers</p>
             </div>
@@ -136,13 +138,23 @@ const Video = () => {
               <div className='h-[80%]'>No videos</div>
             ) :
               (
-                videos.map((ele, index) => {
-                  if(ele.id!==id){
-                  return (
-                    <Link key={index} to={`/video/${ele.id}`}>
-                      <Recommend {...ele} />
-                    </Link>
-                  )}
+                videos.filter((ele) => {
+                  if (ele.id != id) {
+                    if (categoryactive === "All") {
+                      return ele;
+                    }
+                    else {
+                      if (categoryactive === ele.category) return ele;
+                    }
+                  }
+                }).map((ele, index) => {
+                  if (ele.id !== id) {
+                    return (
+                      <Link key={index} to={`/video/${ele.id}`}>
+                        <Recommend {...ele} />
+                      </Link>
+                    )
+                  }
                 })
               )
           }
