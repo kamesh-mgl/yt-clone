@@ -4,7 +4,7 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { MdMic } from "react-icons/md";
 import { BiVideoPlus } from "react-icons/bi";
 import { MdOutlineNotificationsActive } from "react-icons/md";
-
+import logo from "../../public/logo.PNG"
 
 
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Navbar = () => {
                 </div>
                 <div className='w-32 pr-3'>
                     <Link to="/">
-                        <img id='logo-png' className=' object-contain' src="../../public/logo.PNG" alt="Youtube" />
+                        <img id='logo-png' className=' object-contain' src={logo} alt="Youtube" />
                     </Link>
                 </div>
             </div>
